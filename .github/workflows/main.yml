@@ -1,0 +1,27 @@
+.github/workflows/jashan.yaml
+name: Jashan CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Run Python File
+      run: python main.py
+
+    - name: Show Python Version
+      run: python --version
+
